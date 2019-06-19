@@ -1,0 +1,86 @@
+header{
+  height: 100vh;
+  background-color: $color-bg;
+  display: flex;
+  flex-direction: column;
+  padding: 2vw;
+  .nav_main{
+    flex-basis: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .nav_main__title{
+        text-transform: uppercase;
+        margin-left:2vw;
+        letter-spacing: .6vw;
+        font-size: 2em;
+        font-weight: 700;
+        color: $color-dark;
+        display: flex;
+        .title__span{
+            color: #ffffff;
+            display: block;
+            background-color: blue;
+            padding-left: 1vw;
+            transform: rotate(10deg);
+        }
+    }  
+    .nav_main__menu{
+        padding-right: 15vw;
+        .nav_main__menu__burger{
+          position: relative;
+          height: $height-burger;
+          width: $width-burger;
+          background-color: transparent;
+          border: none;
+          border-top:$pseudo-el-height solid $color-dark;  
+           z-index: 999;                      
+          cursor: pointer;
+          transition: 1.5s ease;
+          &:hover{
+            transform: rotate(450deg)
+          }
+            &::before,&::after{
+                content: '';
+                display: block;
+                position: absolute;
+                top:($height-burger / 2) - $pseudo-el-height;                
+                left:0;
+                width:$width-burger / 2;
+                height: $pseudo-el-height;
+                border-top: $color-dark solid $pseudo-el-height;
+                 
+                
+            }
+            &::before{                
+                top: $height-burger - $pseudo-el-height ;
+                width:$width-burger ;
+            }
+        }
+        .menu{
+            background-color: $color-dark;
+            clip-path: circle(50% at 90% 22%);
+            padding-left: 40vw;
+            padding-bottom:40vw ;
+            position: absolute;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            right: 0;
+            z-index: 0;
+            top: 0;
+            transform: scale(0);
+            .menu__list{
+                color: white;
+                padding-top: 10vw;
+                padding-right: 10vw;
+                list-style-type: none;
+                .menu__list__item{
+
+                }
+            }
+        }
+    }  
+  }
+}
