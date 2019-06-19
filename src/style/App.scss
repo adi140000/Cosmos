@@ -1,5 +1,5 @@
 @import './variables';
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
 
 *{
     margin:0;
@@ -8,8 +8,51 @@
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Righteous', cursive;
     font-size: 2vw;
+    overflow-x: hidden;
+    height: 200vh; 
+    width: 100vw;  
+    
+}
+
+.btn{
+    
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: inherit;
+    border: $color-btn 2px solid;
+    border-radius: 5px;
+    padding: 1vw 2vw;
+    color: $color-btn;    
+    z-index: 2;
+    box-shadow: .3vw .3vw .3vw .3vw rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;   
+    cursor: pointer;
+    text-decoration: none;
+    transition: .8s ease color;
+    &::after{
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;       
+        background-color: $color-btn;
+        transition: .8s ease transform;
+        transform: translate(-100%,0);       
+    }
+    &:hover{
+        color: #fff;
+    }
+    &:hover::after{
+        transform: translate(0,0);
+    }
+   
 }
 
 @import './header';
+@import './nav';
+@import './main';

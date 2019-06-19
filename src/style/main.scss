@@ -1,0 +1,29 @@
+.main{
+    height: 10vh;
+    width: 100vw;
+   
+    .main__section{
+        min-height: 100vh;
+        background-color: $color-bg;
+        &.section_description{
+            background-image: url('../img/cosmos.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .section_description__title{
+                color: $color-btn;
+                font-weight: 700;
+                font-size: 2em;
+            }
+            .section_description__desc{
+                color: $color-bg;
+                text-align: justify;
+                padding: 5vw;
+            }
+        }
+        
+    }
+}

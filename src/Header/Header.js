@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 
 
 const Header = () => {
+    const [doActive, setActive] = useState(false);
+    console.log(doActive);
     return (
-        <header>
-            <nav className='nav_main'>
-                <div className='nav_main__title'>Cosmo<span className='title__span'>s</span></div>
-                <div className='nav_main__menu'>
-                    <button className='nav_main__menu__burger'></button>
-                    <div className='menu'>
-                        <ul className='menu__list'> 
-                            <li className='menu__list__item'>swswsw</li>    
-                            <li className='menu__list__item'>swswsw</li>
-                        </ul>                    
+        <>
+            <nav className={`nav_main ${doActive ? 'active' : ''}`}>
+                <div className='nav_main__burger'>
+                    <div className='burger' onClick={() => setActive(!doActive)} >
+                        <button className={`burger__inner ${doActive ? 'active' : ''}`}></button>
                     </div>
                 </div>
-            </nav>
+                <div className='nav_main__menu'>
 
-        </header>
+                </div>
+            </nav>
+            <header className='header_main'>
+                <a href='#ticket' className='header_main__button_invite btn'>Fly with us</a>
+
+            </header>
+        </>
+
 
     );
 }

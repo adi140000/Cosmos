@@ -1,0 +1,72 @@
+.nav_main{
+    position: fixed;
+    display: flex;
+    width: 40vw;    
+    top:0;
+    right: 0;
+    display: flex;
+    justify-content: center;   
+    z-index: 9999; 
+    height: 20vh; 
+    transition: .6s transform; 
+    transform: translate(80%); 
+    &.active{
+        transform: translate(0); 
+    }
+    .nav_main__burger{        
+        flex-basis: 20%;                
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;     
+        margin-top: 1vw;                
+        .burger{          
+           width: $width-burger;
+           height: 10vw;          
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           .burger__inner{               
+               background-color: $color-btn;
+               width: $width-burger;
+               height: $height-burger;
+               border:none;
+               border-radius:10px;
+               position: relative;
+               transition: 1s transform;               
+               &.active{
+                   transform: rotate(45deg) scale(.8);
+                   &::before,&::after{
+                    transform: translate(0) rotate(90deg);
+                   }
+               }
+               &::before,&::after{
+                   content: '';
+                   display: block;
+                   position: absolute;
+                   top:0;
+                   left: 0;
+                   background-color: $color-btn;
+                   width: $width-burger;
+                   height: $height-burger;
+                   border-radius:10px;
+                   transition: 1s linear transform;
+                   transform: translateY($space-bar);                   
+               }
+               &::after{
+                transform: translateY(- $space-bar);
+               }
+           }
+        }
+    }
+    .nav_main__menu{
+        flex-basis: 80%;
+        background-color: $color-btn;
+        border-radius:5px;
+        height: 100vw;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+
+
+    }
+}
+
+

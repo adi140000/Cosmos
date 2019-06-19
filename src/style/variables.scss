@@ -1,11 +1,15 @@
 //colors in project 
-$color-bg:#f3f3f3;
+$color-bg:#cacace;
 $color-dark:#2b2929;
-
+$color-bordered:#a0f39d;
+$color-btn:#267eb8;
 
 //sizes in project
-$width-burger:4vw;
-$height-burger:3vw;
-$pseudo-el-height:.6vw;
-$center-burger:($height-burger / 2) - $pseudo-el-height;
-$shadow: 0 .2vw 0 0 rgba(0,0,0,0.3)
+$width-burger:6vw;
+$height-burger:1vw;
+$space-bar:2vw;
+$brd-radius:10px;
+
+
+//mixins
+
