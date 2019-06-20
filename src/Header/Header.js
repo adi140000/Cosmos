@@ -18,7 +18,7 @@ const Header = () => {
                 </div>
             </nav>
             <header className='header_main'>
-                <a href='#ticket' className='header_main__button_invite btn'>Fly with us</a>
+                <a href='#main' className='header_main__button_invite btn'>Fly with us</a>
 
             </header>
         </>

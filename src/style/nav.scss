@@ -25,7 +25,8 @@
            display: flex;
            justify-content: center;
            align-items: center;
-           .burger__inner{               
+           
+           .burger__inner{                            
                background-color: $color-btn;
                width: $width-burger;
                height: $height-burger;
@@ -62,8 +63,8 @@
         flex-basis: 80%;
         background-color: $color-btn;
         border-radius:5px;
-        height: 100vw;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+        height: 100vw;        
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
 
 
     }

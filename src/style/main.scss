@@ -1,29 +1,66 @@
 .main{
-    height: 10vh;
-    width: 100vw;
-   
-    .main__section{
-        min-height: 100vh;
-        background-color: $color-bg;
-        &.section_description{
-            background-image: url('../img/cosmos.jpg');
-            background-attachment: fixed;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            .section_description__title{
-                color: $color-btn;
-                font-weight: 700;
-                font-size: 2em;
+   min-height: 100vh; 
+   width: 100vw;  
+   .main__nav{        
+       height: 10vh;
+       width: 100%;  
+       display: flex;
+       justify-content: flex-start;
+       align-items: center;
+        .main__nav__part{
+            color: $color-btn;
+            margin-left: 3vw;
+            font-size: .7em;
+            padding-bottom: .5vw;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-style: italic;
+            text-decoration: none;
+            &::after{
+                content: '';
+                position: absolute;
+                top: 90%;
+                left:0;
+                width: 100%;
+                height: 100%;
+                background-color: $color-btn;
+                transition: .6s transform;
+                transform: translateX(100%);
             }
-            .section_description__desc{
-                color: $color-bg;
-                text-align: justify;
-                padding: 5vw;
-            }
+            &.active::after{
+                transform:  translateX(0);
+            }       
         }
-        
+    }
+    
+    .main__section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        width: 100%;        
+        .formFill{
+            background-color: $color-form;
+            width: 40%;
+            height: 70%;
+            border-radius: 10px;
+            box-shadow: .5vw .5vw 10vw  rgba(0,0,0,.6)
+        }
+        .main__section__title{
+            color: $color-btn;
+            font-size: 2em;
+            padding-bottom: 4vw;
+        }
+        .main__section__desc{
+            color:#2d2d2d;
+            text-align: center;
+            width: 90%;            
+            padding-bottom: 4vw;
+        }
+        .main__section__btn{
+            font-size: .8em;
+        }
     }
 }
