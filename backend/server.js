@@ -82,16 +82,30 @@ app.get('/removeFlight', (req, res) => {
 })
 
 app.post('/addTourist', (req, res) => {
+    console.log(req.body);
     const { name, surname, sex, country, note, data_of_birth } = req.body;
-    con.query(`INSERT INTO tourists SET ?`, { name, surname, sex, country, note, data_of_birth }, (err, result) => {
-        if (err) throw err;
-        else {
-            result = JSON.parse(JSON.stringify(result));
-            res.json(req.body);
+    con.query(`SELECT * FROM tourists WHERE name='${name}' AND surname='${surname}'`, (err, result) => {
+        if (err) {
+            res.json({ error: 'Database error' });
         }
-    })
+        else {
+            const count = JSON.parse(JSON.stringify(result)).length;
+            console.log(count);
+            if (count === 0) {
+                con.query(`INSERT INTO tourists SET ?`, { name, surname, sex, country, note, data_of_birth }, (err, result) => {
+                    if (err) throw err;
+                    else {
+                        result = JSON.parse(JSON.stringify(result));
+                        res.json(req.body);
+                    }
+                })
+            } else res.json({ error: 'Podaj inne dane' });
 
+        }
+
+    })
 })
+
 app.post('/addFlight', (req, res) => {
     const { data_outlet, data_arrive, place_number, price } = req.body;
     con.query(`INSERT INTO flights SET ?`, { data_outlet, data_arrive, place_number, price }, (err, result) => {
@@ -105,7 +119,7 @@ app.post('/addFlight', (req, res) => {
 })
 
 app.post('/addList', (req, res) => {
-    const { id_tourist, id_flight,place_number } = req.body;
+    const { id_tourist, id_flight, place_number } = req.body;
 
     let choose = true;
     con.query(`SELECT * FROM list WHERE id_flight=${id_flight}`, (err, result) => {
@@ -120,7 +134,7 @@ app.post('/addList', (req, res) => {
             })
             console.log(result);
             const count = result.length;
-            if (place_number>count && choose) {
+            if (place_number > count && choose) {
                 con.query(`INSERT INTO list SET ?`, { id_flight, id_tourist }, (err, result) => {
                     if (err) throw err;
                     else {
