@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from 'axios';
 
 
@@ -46,7 +46,7 @@ class Add extends Component {
                 err: '',
             })
         }
-        if (!this.state.err) {
+        if (!this.state.err) {            
             this.props.history.push('/done');
         }
 

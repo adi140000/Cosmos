@@ -19,11 +19,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/tourists', (req, res) => {
+    
     con.query(`SELECT * FROM tourists`, (err, result) => {
         if (err) throw err;
         else {
             result = JSON.parse(JSON.stringify(result));
-            console.log(result);
+            res.json(result);
         }
     })
 });

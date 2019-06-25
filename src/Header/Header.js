@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from "react-scroll";
 
 
 const Header = () => {
@@ -18,7 +18,14 @@ const Header = () => {
                 </div>
             </nav>
             <header className='header_main'>
-                <a href='#main' className='header_main__button_invite btn'>Fly with us</a>
+                <Link
+                    activeClass="active"
+                    to="main"
+                    spy={true}
+                    smooth={true}
+                    duration={800}
+                    className='header_main__button_invite btn'
+                > Fly with us</Link>
 
             </header>
         </>

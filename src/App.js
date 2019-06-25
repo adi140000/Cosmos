@@ -8,10 +8,11 @@ import './style/App.scss'
 
 
 const App = () => {
+   
     return (
         <>
             <Header />
-            <Main/>
+            <Main />
         </>
 
     );

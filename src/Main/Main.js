@@ -4,6 +4,7 @@ import Start from './Section/Start';
 import Tourist from './Section/Tourist/Tourist';
 import Flight from './Section/Flight';
 import AddTourist from './Section/Tourist/Add';
+import RemoveTourist from './Section/Tourist/Remove';
 import Done from './Done';
 import Error from './Error';
 
@@ -19,14 +20,13 @@ class Main extends Component {
         }
     }
 
-    resetChange = () => {        
+    resetChange = () => {
         this.setState({
             change: '',
         })
     }
 
     handleChange = (e) => {
-        console.log(e);
         const { id } = e.target;
         this.setState({
             change: id,
@@ -48,12 +48,13 @@ class Main extends Component {
                     </nav>
                     <Switch>
                         <Route exact path="/" component={Start} />
-                        <Route path='/done' component={Done}/>
-                        <Route exact path="/tourist/" render={() => <Tourist resetChange={this.resetChange} change={change} handleChange={this.handleChange} />} />
-                        <Route path="/tourist/add" render={() => change ? <AddTourist change={change} /> : <Error />} />
+                        <Route path='/done' render={() => change ? <Done /> : <Error />} />
+                        <Route path="/tourist/add" render={() => change ? <AddTourist change={change} handleChange={this.handleChange} /> : <Error />} />
+                        <Route path="/tourist/remove" render={() => change ? <RemoveTourist change={change} handleChange={this.handleChange} /> : <Error />} />
+                        <Route path="/tourist/" render={() => <Tourist resetChange={this.resetChange} change={change} handleChange={this.handleChange} />} />
+                        <Route path="/flight/add" render={() => change ? <Tourist change={change} /> : <Error />} />
                         <Route path="/flight/" component={Flight} />
-                        <Route path="/flight/add" render={() => change ? <Tourist change={change} /> : <div>404</div>} />
-                        
+
                     </Switch>
                 </main>
             </Router>);
