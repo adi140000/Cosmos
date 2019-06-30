@@ -61,9 +61,27 @@
                 display: flex;
                 flex-direction: column;                
                 margin-top: 3vw;
+                width: 100%;
                 .result__desc{
                     border-bottom: 2px solid $color-btn;
                     padding: 1vw 2vw;
+                    margin-bottom: 4vw;
+                    width: 50%;
+                }
+                .result__tourists{
+                    color: $color-btn;
+                    padding: 1vw;
+                    border-bottom: .1px solid $color-btn;
+                    align-self: flex-end;
+                    width: 100%;
+                    padding-right: 20%;
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-right: 3vw;
+                    .result__tourists__btn{
+                        margin-left: 10%;
+                    }
+
                 }
             }
             .formFill__btn{

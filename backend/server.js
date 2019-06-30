@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/tourists', (req, res) => {
-    
+
     con.query(`SELECT * FROM tourists`, (err, result) => {
         if (err) throw err;
         else {
@@ -52,17 +52,19 @@ app.get('/list', (req, res) => {
 
 
 app.get('/removeTourist', (req, res) => {
-    const { id } = req.query;
+    let { id } = req.query;    
+    console.log(id)
+    con.query(`DELETE tourists, list FROM tourists LEFT JOIN list on tourists.id_tourist = list.id_tourist
+    WHERE tourists.id_tourist = ${id}  `, (err, result) => {
+            if (err) {
+                res.json(false)
 
-    con.query(`DELETE a.*, b.* 
-    FROM tourists as a, list as b
-    WHERE a.id_tourist = b.id_tourist
-    AND a.id_tourist = ${id}; `, (err, result) => {
-            if (err) throw err;
+            }
             else {
                 result = JSON.parse(JSON.stringify(result));
-                console.log(id);
+                res.json(true)
             }
+
         })
 
 })
@@ -70,10 +72,8 @@ app.get('/removeTourist', (req, res) => {
 
 app.get('/removeFlight', (req, res) => {
     const { id } = req.query;
-    con.query(`DELETE a.*, b.* 
-    FROM flights as a, list as b
-    WHERE a.id_flight = b.id_flight
-    AND a.id_flight = ${id}; `, (err, result) => {
+    con.query(`DELETE flights, list FROM flights LEFT JOIN list on flights.id_flight = list.id_flight
+    WHERE flights.id_flight = ${id} `, (err, result) => {
             if (err) throw err;
             else {
                 result = JSON.parse(JSON.stringify(result));
