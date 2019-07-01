@@ -104,7 +104,8 @@
                 height: 2vw;
             }
             .formFill__option{
-                margin: 5% 0;                
+                
+                margin: 7% 0;                
                 font-size: .6em;
                 align-self: flex-start;
                 display: flex;
@@ -123,6 +124,11 @@
                     width: 15vw;
                     height: 2vw;
                     font-weight: 700;
+                    padding: 0.2vw;
+                    &.option__txt--area{
+                        height: 8vw;
+                        resize: none;
+                    }
                 }
                 .option_input{
                     position: relative;                 

@@ -10,7 +10,7 @@ class Remove extends Component {
             activeTourists: [],
             input: false,
         }
-    }
+    }   
 
     componentWillMount = async () => {
         const tourists = await axios.get(`http://localhost:3500/tourists`);

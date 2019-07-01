@@ -49,8 +49,8 @@ class Main extends Component {
                     <Switch>
                         <Route exact path="/" component={Start} />
                         <Route path='/done' render={() => change ? <Done /> : <Error />} />
-                        <Route path="/tourist/add" render={() => change ? <AddTourist change={change} handleChange={this.handleChange} /> : <Error />} />
-                        <Route path="/tourist/remove" render={() => change ? <RemoveTourist change={change} handleChange={this.handleChange} /> : <Error />} />
+                        <Route path="/tourist/add" render={() => change ? <AddTourist change={change} /> : <Error />} />
+                        <Route path="/tourist/remove" render={() => change ? <RemoveTourist change={change} /> : <Error />} />
                         <Route path="/tourist/" render={() => <Tourist resetChange={this.resetChange} change={change} handleChange={this.handleChange} />} />
                         <Route path="/flight/add" render={() => change ? <Tourist change={change} /> : <Error />} />
                         <Route path="/flight/" component={Flight} />

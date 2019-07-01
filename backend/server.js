@@ -52,7 +52,7 @@ app.get('/list', (req, res) => {
 
 
 app.get('/removeTourist', (req, res) => {
-    let { id } = req.query;    
+    let { id } = req.query;
     console.log(id)
     con.query(`DELETE tourists, list FROM tourists LEFT JOIN list on tourists.id_tourist = list.id_tourist
     WHERE tourists.id_tourist = ${id}  `, (err, result) => {
