@@ -33,7 +33,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql": "^2.17.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react-pose": "^4.0.8",
     "react-router-dom": "^5.0.1",
     "react-scroll": "^1.7.12",
